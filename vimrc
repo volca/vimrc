@@ -14,6 +14,8 @@ Plugin 'VundleVim/Vundle.vim'
 "" Syntax/Indent for language enhancement
 "----------------------------------------
 Plugin 'sudar/vim-arduino-syntax'
+Plugin 'skywind3000/asyncrun.vim'
+Plugin 'vim-airline/vim-airline'
 
 call vundle#end()             " required
 filetype plugin indent on     " required!
@@ -22,3 +24,4 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 syntax on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4
 colo desert
+let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
