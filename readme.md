@@ -7,5 +7,5 @@ My personal vimrc configuration.
 ```
 source ~/path/to/vimrc/vimrc
 ```
-* Open vim and run command ```PluginInstall```
+* Run command ```vim +PluginInstall +qall```
 
