@@ -16,6 +16,7 @@ Plugin 'VundleVim/Vundle.vim'
 Plugin 'sudar/vim-arduino-syntax'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 
 call vundle#end()             " required
 filetype plugin indent on     " required!
