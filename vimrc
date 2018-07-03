@@ -22,6 +22,7 @@ Plugin 'brookhong/cscope.vim'
 call vundle#end()             " required
 filetype plugin indent on     " required!
 
+set enc=utf-8 fenc=utf-8
 set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 syntax on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 fdm=marker
