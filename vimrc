@@ -28,6 +28,7 @@ set expandtab tabstop=4 softtabstop=4 shiftwidth=4 fdm=marker
 colo desert
 let g:asyncrun_status = ""
 let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
+let g:cscope_silent = 1
 
 nnoremap <leader>fa :call CscopeFindInteractive(expand('<cword>'))<CR>
 nnoremap <leader>l :call ToggleLocationList()<CR>
