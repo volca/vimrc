@@ -2,10 +2,11 @@ My personal vimrc configuration.
 
 ## Install
 
-* Install [Vundle](https://github.com/VundleVim/Vundle.vim)
+* Install neovim
+* Install [vim-plug](https://github.com/junegunn/vim-plug.git)
 * In ~/.vimrc, add the following line: 
 ```
 source ~/path/to/vimrc/vimrc
 ```
-* Run command ```vim +PluginInstall +qall```
+* Run command ```vim +PlugInstall```
 
