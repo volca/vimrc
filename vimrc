@@ -1,24 +1,14 @@
 set nocompatible               " be iMproved
 filetype off                   " required!
 
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
+Plug 'sudar/vim-arduino-syntax'
+Plug 'skywind3000/asyncrun.vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'neovim/nvim-lsp'
+call plug#end()
 
-Plugin 'VundleVim/Vundle.vim'
-
-" My Bundles here:
-"
-
-
-"----------------------------------------
-"" Syntax/Indent for language enhancement
-"----------------------------------------
-Plugin 'sudar/vim-arduino-syntax'
-Plugin 'skywind3000/asyncrun.vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-
-call vundle#end()             " required
 filetype plugin indent on     " required!
 
 set enc=utf-8 fenc=utf-8
@@ -26,5 +16,3 @@ set fileencodings=utf-8,gb2312,gb18030,gbk,ucs-bom,cp936,latin1
 syntax on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 fdm=marker
 colo desert
-let g:asyncrun_status = ""
-let g:airline_section_error = airline#section#create_right(['%{g:asyncrun_status}'])
