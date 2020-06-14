@@ -17,40 +17,26 @@ syntax on
 set expandtab tabstop=4 softtabstop=4 shiftwidth=4 fdm=marker
 colo desert
 
-let settings = {
-          \   "pyls" : {
-          \     "enable" : v:true,
-          \     "trace" : { "server" : "verbose", },
-          \     "commandPath" : "",
-          \     "configurationSources" : [ "pycodestyle" ],
-          \     "plugins" : {
-          \       "jedi_completion" : { "enabled" : v:true, },
-          \       "jedi_hover" : { "enabled" : v:true, },
-          \       "jedi_references" : { "enabled" : v:true, },
-          \       "jedi_signature_help" : { "enabled" : v:true, },
-          \       "jedi_symbols" : {
-          \         "enabled" : v:true,
-          \         "all_scopes" : v:true,
-          \       },
-          \       "mccabe" : {
-          \         "enabled" : v:true,
-          \         "threshold" : 15,
-          \       },
-          \       "preload" : { "enabled" : v:true, },
-          \       "pycodestyle" : { "enabled" : v:true, },
-          \       "pydocstyle" : {
-          \         "enabled" : v:false,
-          \         "match" : "(?!test_).*\\.py",
-          \         "matchDir" : "[^\\.].*",
-          \       },
-          \       "pyflakes" : { "enabled" : v:true, },
-          \       "rope_completion" : { "enabled" : v:true, },
-          \       "yapf" : { "enabled" : v:true, },
-          \     }}}
-call nvim_lsp#setup("pyls", settings)
-
 " disable preview window
 set completeopt-=preview
 
-" use omni completion provided by lsp
-set omnifunc=lsp#omnifunc
+augroup highlight_yank
+    autocmd!
+    autocmd TextYankPost * silent! lua require'vim.highlight'.on_yank("IncSearch", 1000)
+augroup END
+
+lua << EOF
+local nvim_lsp = require'nvim_lsp'
+
+local on_attach = function(client, bufnr)
+  -- Set the omnifunc for this buffer.
+  vim.api.nvim_buf_set_option(bufnr, "omnifunc", "v:lua.vim.lsp.omnifunc")
+
+  -- Configure some mappings for this buffer.
+  local opts = { noremap=true, silent=true }
+  vim.api.nvim_buf_set_keymap(bufnr, "n", "gd", "<cmd>lua vim.lsp.buf.declaration()<CR>", opts)
+end
+
+nvim_lsp.intelephense.setup({ on_attach=on_attach })
+EOF
+
