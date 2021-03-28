@@ -5,7 +5,7 @@ My personal vimrc configuration.
 For macOS and homebrew only
 
 * Install latest neovim `brew install --HEAD neovim`
-* Install ccls `brew install ccls`
+* Install llvm `brew install llvm`
 * Install [vim-plug](https://github.com/junegunn/vim-plug.git)
 * In ~/.vimrc, add the following line: 
 ```
